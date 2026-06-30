@@ -1,0 +1,99 @@
+h2 {
+    color: black;
+    background: lightskyblue;
+}
+
+#cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+    gap: 24px;
+    margin: 30px auto;
+}
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    background: #fff;
+    border-radius: 18px;
+
+    padding: 22px;
+
+    text-decoration: none;
+    color: #222;
+
+    border: 1px solid #e5e7eb;
+
+    box-shadow:
+        0 4px 8px rgba(0, 0, 0, 0.05),
+        0 10px 25px rgba(0, 0, 0, 0.06);
+
+    transition:
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: "🏫 一時避難場所";
+    display: block;
+
+    margin: -22px -22px 20px;
+
+    padding: 12px 20px;
+
+    background: linear-gradient(135deg, #2563eb, #3b82f6);
+
+    color: white;
+    font-size: 0.9rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+}
+
+.card::after {
+    content: "詳細を見る →";
+
+    margin-top: auto;
+    padding-top: 18px;
+
+    color: #2563eb;
+    font-weight: 700;
+
+    border-top: 1px solid #ececec;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow:
+        0 12px 25px rgba(0, 0, 0, 0.12),
+        0 20px 45px rgba(0, 0, 0, 0.08);
+}
+
+.card h2 {
+    margin: 0 0 16px;
+    font-size: 1.35rem;
+    line-height: 1.4;
+    color: #1e3a8a;
+}
+
+.card p {
+    margin: 0 0 10px;
+    line-height: 1.7;
+    color: #555;
+}
+
+.card p:first-of-type::before {
+    content: "📍 ";
+}
+
+.card p:last-of-type:not(:first-of-type)::before {
+    content: "☎ ";
+}
+
+@media (max-width: 700px) {
+    #cards {
+        grid-template-columns: 1fr;
+    }
+}
